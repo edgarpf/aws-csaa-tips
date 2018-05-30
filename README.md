@@ -18,3 +18,13 @@ Tips and hints for anyone trying to take AWS Certified Solutions Architect – A
 - You can configure ELB to send the X-forwarded for headers and the web EC2 instances (servers) to filter traffic based on ELB's "X-forwarded-for" headers.
 
 - Access Logs, API calls logged by Cloud Trail and Cloud Watch monitoring ELB metrics can be monitored as part of the ELB monitoring.
+
+- Server Order Preference must be enable on ELB such that ELB will determine/select the cipher used for SSL connection during the SSL negotiation process between the ELB and the client.
+
+- If you did not specify a SSL security policy by default the first cipher on the client's list that matches any of the ELB ciphers will be selected.
+
+- Custom security policies and ELB predefined security Policies are the two types of security policies that are suported by ELB.
+
+- If the end user is requesting behind a proxy server then the user should not enable a proxy protocol on ELB.
+
+- If the backend instance to which a session was sticky, fails or becomes unhealthy, the ELB routes the new session/requests (that were stuck before) to a new, healthy, instance and the session is no longer a sticky one.
