@@ -8,7 +8,7 @@
 
 - Before you can create EBS volumes from a encrypted shared snapshot you must create a copy of it.
 
-- If an 'A' account, source of an shared encrypted snapshot, revoked 'B' account's rights on CMK encryption key used to encrypted it, 'B' can not use the snapshot, not even a copy.  
+- If an 'A' account, source of an shared encrypted snapshot, revoked 'B' account's rights on CMK encryption key used to encrypted it, 'B' can not use the snapshot, not even a copy already done.  
 
 - Instance store volumes can be added only while launching the instance, and can't be added after the EC2 instance is created.
 
