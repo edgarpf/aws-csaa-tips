@@ -2,7 +2,7 @@
 
 ## EBS (Elastic Block Store)
 
-- To share an **unencrypted** volume you can mark it as public (this will make it widely avaiable) or mark it as private and then enter the aws accounts with which you want to share it.
+- To share an **unencrypted** volume you can mark it as public (this will make it widely avaliable) or mark it as private and then enter the aws accounts with which you want to share it.
 
 - To share an **encrypted** volume you can mark it as private and then enter the AWS accounts with which you want to share it, and give these accounts permissions on the key used to encrypt the snapshot. AWS will not allow making encrypted snapshots public.
 
