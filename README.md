@@ -40,3 +40,5 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - For multiple SSL certificates create multiple ELB instances.
 
 - You can enable ELB Pre-Warm if you know your traffic will increase abruptly. You need to conctact AWS. 
+
+## Auto Scaling
