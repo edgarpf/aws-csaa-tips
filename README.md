@@ -8,3 +8,11 @@ Tips and hints for anyone trying to take AWS Certified Solutions Architect – A
 - To share an **encrypted** volume you can mark it as private and then enter the AWS accounts with which you want to share it, and give these accounts permissions on the key used to encrypt the snapshot. AWS will not allow making encrypted snapshots public.
 
 - Before you can create EBS volumes from a encrypted shared snapshot you must create a copy of it.
+
+- If an 'A' account, source of an shared encrypted snapshot, revoked 'B' account's rights on CMK encryption key used to encrypted it, 'B' can not use the snapshot, not even a copy.  
+
+- Instance store volumes can be added only while launching the instance, and can't be added after the EC2 instance is created.
+
+## ELB (Elastic Load Balancing)
+
+- 
