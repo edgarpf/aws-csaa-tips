@@ -17,4 +17,4 @@ Tips and hints for anyone trying to take AWS Certified Solutions Architect – A
 
 - You can configure ELB to send the X-forwarded for headers and the web EC2 instances (servers) to filter traffic based on ELB's "X-forwarded-for" headers.
 
-- 
+- Access Logs, API calls logged by Cloud Trail and Cloud Watch monitoring ELB metrics can be monitored as part of the ELB monitoring.
