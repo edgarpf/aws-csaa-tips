@@ -15,4 +15,6 @@ Tips and hints for anyone trying to take AWS Certified Solutions Architect – A
 
 ## ELB (Elastic Load Balancing)
 
+- You can configure ELB to send the X-forwarded for headers and the web EC2 instances (servers) to filter traffic based on ELB's "X-forwarded-for" headers.
+
 - 
