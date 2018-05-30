@@ -14,7 +14,7 @@
 
 ## ELB (Elastic Load Balancing)
 
-- You can configure ELB to send the X-forwarded for headers and the web EC2 instances (servers) to filter traffic based on ELB's "X-forwarded-for" headers.
+- You can configure ELB to send the X-forwarded for headers and the web EC2 instances (servers) to filter traffic based on ELB's "X-forwarded-for" headers. You can also filter traffic when you configure TCP listeners and enable proxy protocol. 
 
 - Access Logs, API calls logged by Cloud Trail and Cloud Watch monitoring ELB metrics can be monitored as part of the ELB monitoring.
 
@@ -27,3 +27,16 @@
 - If the end user is requesting behind a proxy server then the user should not enable a proxy protocol on ELB.
 
 - If the backend instance to which a session was sticky, fails or becomes unhealthy, the ELB routes the new session/requests (that were stuck before) to a new, healthy, instance and the session is no longer a sticky one.
+
+- ELB’s Cross zone load balancing feature will ensure even distribution of traffic among
+the backed EC2 instances registered with the ELB across multiple availability zones.
+
+- TLS 1.2 and SSL 3.0 security protocols are supported by the AWS ELB SSL security policies.
+
+- ELB connection draining will allow the ELB to stop sending any new requests to a backend EC2 instance that is marked as unhealthy by the ELB, without terminating the in-flight sessions to that EC2 instance, while the ELB takes the unhealthy instance out of service.
+
+- ELB and its backend EC2 instances must be in the same VPC.
+
+- For multiple SSL certificates create multiple ELB instances.
+
+- You can enable ELB Pre-Warm if you know your traffic will increase abruptly. You need to conctact AWS. 
