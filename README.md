@@ -70,3 +70,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - If you take a snapshot the I/O operations will be suspended for a few minutes while the backup is in progress.
 
 - BYOL and License Included are the type licenses avaliable on ORACLE DB Engine.
+
+## S3 (Simple Storage Service)
+
+- 
