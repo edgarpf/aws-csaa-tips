@@ -41,4 +41,22 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - You can enable ELB Pre-Warm if you know your traffic will increase abruptly. You need to conctact AWS. 
 
-## Auto Scaling
+## AS (Auto Scaling)
+
+- AS will always try to rebalance EC2 instances between the AZ's.
+
+- Cyclic or schedule-based scaling is the one that can increase (scale out) at certain date/time and scale in again based on certain date/time.
+
+- For Rebalancing, a new instance is launched then the one(s) causing the imbalance get terminated.
+
+- For unhealthy instances, Auto Scaling has to terminate the unhealthy first then launch a new one.
+
+- The ELB and AS must be in the same region.
+
+- AS group schedule policy events must be unique in time.
+
+- Basic monitoring is the default if you created AS launch configuration using AWS console. But if you use AWS CLI the default will be detailed monitoring.
+
+- When you delete an AS Group, its parameters minimum, maximum, and desired capacity are all set to Zero (it shows under AWS Console view as well), hence, it terminates all its EC2 instances.
+
+## RDS (Relational Dataabse Service)
