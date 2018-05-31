@@ -59,4 +59,4 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - When you delete an AS Group, its parameters minimum, maximum, and desired capacity are all set to Zero (it shows under AWS Console view as well), hence, it terminates all its EC2 instances.
 
-## RDS (Relational Dataabse Service)
+## RDS (Relational Database Service)
