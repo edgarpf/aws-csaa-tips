@@ -60,3 +60,13 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - When you delete an AS Group, its parameters minimum, maximum, and desired capacity are all set to Zero (it shows under AWS Console view as well), hence, it terminates all its EC2 instances.
 
 ## RDS (Relational Database Service)
+
+- 6TB is the maximum size of the DB instance.
+
+- Is it not possible to scale the storage down, you can only scale it up.
+
+- Every DB has a weekely maintenence window.
+
+- If you take a snapshot the I/O operations will be suspended for a few minutes while the backup is in progress.
+
+- BYOL and License Included are the type licenses avaliable on ORACLE DB Engine.
