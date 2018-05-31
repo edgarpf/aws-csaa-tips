@@ -73,4 +73,28 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 ## S3 (Simple Storage Service)
 
-- 
+- To encrypty data in S3 buckets you can use AWS S3 server side encryption or encrypty the data at source.
+
+- AWS S3 multipart upload to upload large files.
+
+- S3 will return a HTTP 200 code when an object upload ended successful (and MD5 checksum if SSE was requested).
+
+- Add a random prefix name to optimize uploads.
+
+- You can use Cloud Front to optmize your static site.
+
+- You can enable bucket version. 
+
+- Amazon S3 standard storage class provides 99.99% avaliability and 99.999999999% durability to S3 objects.
+
+- Amazon S3 Infrequent Acess class provides 99.9% avaliability and 99.999999999% durability to S3 objects.
+
+- Glacier provides 99.999999999% durability.
+
+- Expedited, Standard and Bulk are the three archive retrieval method thah can be used to restore archives from Glacier.
+
+- Glacier uses synchronous uploads and asynchronous retrieval.
+
+- AWS S3 replicates your data to multiple facilites within the same region.
+
+- You can use pre-signed URLs to avoid people using your S3 objects for free.
