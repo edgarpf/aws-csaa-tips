@@ -179,11 +179,11 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - CloudWatch has available Amazon EC2 Metrics for you to use for monitoring CPU utilization, Network utilization, Disk performance and Disk Reads/Writes. In case that you need to monitor the below items, you need to prepare a custom metric using a Perl or other shell script, as there are no ready to use metrics for these:
 
-Memory utilization
-disk swap utilization
-disk space utilization
-page file utilization
-log collection
+ * Memory utilization
+ * disk swap utilization
+ * disk space utilization
+ * page file utilization
+ * log collection
 
 ## IAM
 
