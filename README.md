@@ -10,17 +10,17 @@
 
    * Create a VPC with a size /16 IPv4 CIDR block (172.31.0.0/16). This provides up to 65,536 private IPv4 addresses.
 
-Create a size /20 default subnet in each Availability Zone. This provides up to 4,096 addresses per subnet, a few of which are reserved for our use.
+   * Create a size /20 default subnet in each Availability Zone. This provides up to 4,096 addresses per subnet, a few of which are reserved for our use.
 
-Create an Internet Gateway and connect it to your default VPC.
+   * Create an Internet Gateway and connect it to your default VPC.
 
-Create a main route table for your default VPC with a rule that sends all IPv4 traffic destined for the Internet to the Internet gateway.
+   * Create a main route table for your default VPC with a rule that sends all IPv4 traffic destined for the Internet to the Internet gateway.
 
-Create a default security group and associate it with your default VPC.
+   * Create a default security group and associate it with your default VPC.
 
-Create a default network access control list (ACL) and associate it with your default VPC.
+   * Create a default network access control list (ACL) and associate it with your default VPC.
 
-Associate the default DHCP options set for your AWS account with your default VPC.
+   * Associate the default DHCP options set for your AWS account with your default VPC.
 
 - Changes made in a Security Group is immediately implemented to all associated EC2 instances.
 
