@@ -62,6 +62,8 @@
 
 ## ELB (Elastic Load Balancing)
 
+- The load balancer routes requests only to the healthy instances. When the load balancer determines that an instance is unhealthy, it stops routing requests to that instance. The load balancer resumes routing requests to the instance when it has been restored to a healthy state.
+
 - You can configure ELB to send the X-forwarded for headers and the web EC2 instances (servers) to filter traffic based on ELB's "X-forwarded-for" headers. You can also filter traffic when you configure TCP listeners and enable proxy protocol. 
 
 - Access Logs, API calls logged by Cloud Trail and Cloud Watch monitoring ELB metrics can be monitored as part of the ELB monitoring.
@@ -196,3 +198,7 @@ log collection
 ## Amazon SNS 
 
 - Amazon SNS supports notifications over multiple transport protocols in order for customers to have broad flexibility of delivery mechanisms.Customers can select one the following transports as part of the subscription requests:HTTP, HTTPS, Email, Email-JSON, SQS and SMS.
+
+## AWS Lambda
+
+- The AWS Lambda resource limit for ephemeral disk capacity (/tmp space) per invocation is 512 MB.
