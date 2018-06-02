@@ -148,6 +148,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Cyclic or schedule-based scaling is the one that can increase (scale out) at certain date/time and scale in again based on certain date/time.
 
+- Remember that you can't modify a launch configuration after you've created it.
+
 - The cooldown period is a configurable setting for your Auto Scaling group that helps to ensure that it doesn't launch or terminate additional instances before the previous scaling activity takes effect. Its period is 300 seconds by default.
 
 - For Rebalancing, a new instance is launched then the one(s) causing the imbalance get terminated.
