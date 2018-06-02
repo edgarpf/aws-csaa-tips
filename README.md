@@ -42,6 +42,8 @@
 
 - By default, your instance is enabled for basic monitoring. Data is available automatically in 5-minute periods at no charge.
 
+- If your Spot instance is terminated or stopped by Amazon EC2 in the first instance hour, you will not be charged for that usage. However, if you terminate the instance yourself, you will be charged to the nearest second. If the Spot instance is terminated or stopped by Amazon EC2 in any subsequent hour, you will be charged for your usage to the nearest second. If you are running on Windows and you terminate the instance yourself, you will be charged for an entire hour.
+
 ## EBS (Elastic Block Store)
 
 - Amazon EBS-backed instances can be stopped and restarted unlike Amazon Instance Store-Backed instances which cannot be stopped.
@@ -90,6 +92,11 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - For multiple SSL certificates create multiple ELB instances.
 
 - You can enable ELB Pre-Warm if you know your traffic will increase abruptly. You need to conctact AWS. 
+
+-  To implement the stick session feature, you need to have 2 things:
+
+   * An HTTP/HTTPS load balancer.
+   * At least one healthy instance in each Availability Zone.
 
 ## AS (Auto Scaling)
 
@@ -159,19 +166,21 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - You can use pre-signed URLs to avoid people using your S3 objects for free.
 
-## AWS CloudTrail
+## CloudTrail
 
 - CloudTrail provides event history of your AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. 
 
-## AWS Budgets
+## Budgets
 
 - AWS Budgets gives you the ability to set custom budgets that alert you when your costs or usage exceed (or are forecasted to exceed) your budgeted amount.
 
-## AWS CloudFormation
+## CloudFormation
+
+- AWS CloudFormation provides a common language for you to describe and provision all the infrastructure resources in your cloud environment. 
 
 - There is no additional charge for AWS CloudFormation. You only pay for the AWS resources that are created.
 
-## Amazon EMR
+## EMR
 
 - Amazon EMR is a web service that enables businesses, researchers, data analysts, and developers to easily and cost-effectively process vast amounts of data.
 
@@ -195,14 +204,25 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - If a company is using Microsoft Active Directory which implements Security Assertion Markup Language (SAML),  you can set up a SAML-Based Federation for API Access to your AWS cloud. In this way, you can easily connect to AWS using the login credentials of your on-premise network.
 
-## Amazon Kinesis Data Firehos
+## Kinesis Data Firehos
 
 - Amazon Kinesis Data Firehose is the easiest way to load streaming data into data stores and analytics tools. It can capture, transform, and load streaming data into Amazon S3, Amazon Redshift, Amazon Elasticsearch Service, and Splunk.
 
-## Amazon SNS 
+## SNS 
 
 - Amazon SNS supports notifications over multiple transport protocols in order for customers to have broad flexibility of delivery mechanisms.Customers can select one the following transports as part of the subscription requests:HTTP, HTTPS, Email, Email-JSON, SQS and SMS.
 
-## AWS Lambda
+## Lambda
 
 - The AWS Lambda resource limit for ephemeral disk capacity (/tmp space) per invocation is 512 MB.
+
+- AWS Lambda supports Java, Node.js, C#, and Python with support for other languages coming in the future.
+
+
+## SQS
+
+- Remember that the messages in the SQS queue will continue to exist even after the EC2 instance has processed it, until you delete that message.
+
+## Cloud Front
+
+- Amazon CloudFront is a global content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to your viewers with low latency and high transfer speeds.
