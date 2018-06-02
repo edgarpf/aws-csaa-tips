@@ -4,7 +4,9 @@
 
 - Tags enable you to categorize your AWS resources in different ways.
 
-## VPC
+- The term pilot light is often used to describe a DR scenario in which a minimal version of an environment is always running in the cloud. 
+
+## VPC, VPN
 
 - In the default VPC, AWS automatically sets up the following for you:
 
@@ -28,17 +30,27 @@
 
 - The CIDR block must not overlap with any existing CIDR block that's associated with the VPC.
 
+- Network ACL Rules are evaluated by rule number, from lowest to highest, and executed immediately when a matching allow/deny rule is found.
+
 - You cannot increase or decrease the size of an existing CIDR block.
 
 - The first four IP addresses and the last IP address in each subnet CIDR block are not available for you to use, and cannot be assigned to an instance.
 
 - In an ideal and secure VPC architecture, you launch the web servers or elastic load balancers in the public subnet and the database servers in the private subnet.
 
+- A bastion host is a special purpose computer on a network specifically designed and configured to withstand attacks.
+
 ## EC2
+
+- Instance metadata is data about your instance that you can use to configure or manage the running instance. You can get the instance id, public keys, public IP address and many other information from the instance metadata by firing a URL command in your instance to this URL: http://169.254.169.254/latest/meta-data/.
 
 - The instance retains its associated Elastic IP addresses if it is in the EC2-VPC platform and not on EC2-Classic.
 
 - If you use PuTTY to connect to your instance via SSH and get either of the following errors, Error: Server refused our key or Error: No supported authentication methods available, verify that you are connecting with the appropriate user name for your AMI. You should also verify that your private key (.pem) file has been correctly converted to the format recognized by PuTTY (.ppk).
+
+- Amazon EC2 has a soft limit of 20 instances per region, which can be easily resolved by completing the Amazon EC2 instance request form where your use case and your instance increase will be considered. Limit increases are tied to the region they were requested for.
+
+- To log in to your instance, you must create a key pair.
 
 - By default, your instance is enabled for basic monitoring. Data is available automatically in 5-minute periods at no charge.
 
@@ -47,6 +59,12 @@
 - Snapshots occur asynchronously which means that the point-in-time snapshot is created immediately, but the status of the snapshot is pending until the snapshot is complete (when all of the modified blocks have been transferred to Amazon S3), which can take several hours for large initial snapshots or subsequent snapshots where many blocks have changed. While it is completing, an in-progress snapshot is not affected by ongoing reads and writes to the volume hence, you can still use the volume.
 
 ## EBS (Elastic Block Store)
+
+- When you create an EBS volume in an Availability Zone, it is automatically replicated within that zone to prevent data loss due to failure of any single hardware component.
+
+- EBS volumes support live configuration changes while in production which means that you can modify the volume type, volume size, and IOPS capacity without service interruptions.
+
+- In the AWS CLI, you can create a snapshot using this command: create-snapshot.
 
 - Amazon EBS-backed instances can be stopped and restarted unlike Amazon Instance Store-Backed instances which cannot be stopped.
 
@@ -65,6 +83,8 @@
 - Instance store volumes can be added only while launching the instance, and can't be added after the EC2 instance is created.
 
 ## ELB (Elastic Load Balancing)
+
+- An Elastic Load Balancer distributes incoming application traffic across multiple EC2 instances, in multiple Availability Zones which increases the fault tolerance of your applications.
 
 - The load balancer routes requests only to the healthy instances. When the load balancer determines that an instance is unhealthy, it stops routing requests to that instance. The load balancer resumes routing requests to the instance when it has been restored to a healthy state.
 
@@ -106,6 +126,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Cyclic or schedule-based scaling is the one that can increase (scale out) at certain date/time and scale in again based on certain date/time.
 
+- The cooldown period is a configurable setting for your Auto Scaling group that helps to ensure that it doesn't launch or terminate additional instances before the previous scaling activity takes effect. Its period is 300 seconds by default.
+
 - For Rebalancing, a new instance is launched then the one(s) causing the imbalance get terminated.
 
 - For unhealthy instances, Auto Scaling has to terminate the unhealthy first then launch a new one.
@@ -128,6 +150,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Every DB has a weekely maintenence window.
 
+- Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed cloud database and supports both document and key-value store models. 
+
 - If you take a snapshot the I/O operations will be suspended for a few minutes while the backup is in progress.
 
 - BYOL and License Included are the type licenses avaliable on ORACLE DB Engine.
@@ -135,6 +159,13 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache that can reduce Amazon DynamoDB response times from milliseconds to microseconds, even at millions of requests per second.
 
 - You can store session state data on both DynamoDB and ElastiCache.
+
+ - Amazon RDS automatically performs a failover in the event of any of the following:
+
+   * Loss of availability in primary Availability Zone 
+   * Loss of network connectivity to primary
+   * Compute unit failure on primary
+   * Storage failure on primary
 
 ## S3 (Simple Storage Service)
 
@@ -169,6 +200,12 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - AWS S3 replicates your data to multiple facilites within the same region.
 
 - You can use pre-signed URLs to avoid people using your S3 objects for free.
+
+ - Amazon S3 supports the following destinations where it can publish events:
+
+   * Amazon Simple Notification Service (Amazon SNS) topic
+   * Amazon Simple Queue Service (Amazon SQS) queue
+   * AWS Lambda
 
 ## CloudTrail
 
@@ -210,6 +247,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - If a company is using Microsoft Active Directory which implements Security Assertion Markup Language (SAML),  you can set up a SAML-Based Federation for API Access to your AWS cloud. In this way, you can easily connect to AWS using the login credentials of your on-premise network.
 
+- AWS Security Token Service (AWS STS) is the service that you can use to create and provide trusted users with temporary security credentials that can control access to your AWS resources.
+
 ## Kinesis Data Firehos
 
 - Amazon Kinesis Data Firehose is the easiest way to load streaming data into data stores and analytics tools. It can capture, transform, and load streaming data into Amazon S3, Amazon Redshift, Amazon Elasticsearch Service, and Splunk.
@@ -249,3 +288,21 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 ## Snowball
 
 - AWS Snowball is a service that accelerates the transfer of large amounts of data into and out of AWS using physical storage appliances, bypassing the Internet.
+
+## Amazon Redshift 
+
+- Amazon Redshift is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all your data using standard SQL and your existing Business Intelligence (BI) tools. It allows you to run complex analytic queries against petabytes of structured data using sophisticated query optimization, columnar storage on high-performance local disks, and massively parallel query execution.
+
+## AWS IoT Core
+
+- AWS IoT Core is a managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices. 
+
+## Route53
+
+- To route the traffic from your domain name to an Elastic Load Balancer, you have to use an alias with a type "A" record set.
+
+-  You can create a policy in Route53, such as a Weighted routing policy, to evenly distribute the traffic to 2 or more EC2 instances.
+
+## OpsWorks
+
+- AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet. Chef and Puppet are automation platforms that allow you to use code to automate the configurations of your servers. OpsWorks lets you use Chef and Puppet to automate how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments. OpsWorks has three offerings - AWS Opsworks for Chef Automate, AWS OpsWorks for Puppet Enterprise, and AWS OpsWorks Stacks.
