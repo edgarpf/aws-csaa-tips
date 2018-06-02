@@ -44,6 +44,8 @@
 
 - If your Spot instance is terminated or stopped by Amazon EC2 in the first instance hour, you will not be charged for that usage. However, if you terminate the instance yourself, you will be charged to the nearest second. If the Spot instance is terminated or stopped by Amazon EC2 in any subsequent hour, you will be charged for your usage to the nearest second. If you are running on Windows and you terminate the instance yourself, you will be charged for an entire hour.
 
+- Snapshots occur asynchronously which means that the point-in-time snapshot is created immediately, but the status of the snapshot is pending until the snapshot is complete (when all of the modified blocks have been transferred to Amazon S3), which can take several hours for large initial snapshots or subsequent snapshots where many blocks have changed. While it is completing, an in-progress snapshot is not affected by ongoing reads and writes to the volume hence, you can still use the volume.
+
 ## EBS (Elastic Block Store)
 
 - Amazon EBS-backed instances can be stopped and restarted unlike Amazon Instance Store-Backed instances which cannot be stopped.
@@ -132,6 +134,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Amazon DynamoDB Accelerator (DAX) is a fully managed, highly available, in-memory cache that can reduce Amazon DynamoDB response times from milliseconds to microseconds, even at millions of requests per second.
 
+- You can store session state data on both DynamoDB and ElastiCache.
+
 ## S3 (Simple Storage Service)
 
 - Transferring data from an EC2 instance to Amazon S3, Amazon Glacier, Amazon DynamoDB, Amazon SES, Amazon SQS, or Amazon SimpleDB in the same AWS Region has no cost at all.
@@ -202,6 +206,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - There are 2 types of policies in IAM: Identity-Based Policies and Resource-Based Policies.
 
+- IAM users are created with no permissions by default.
+
 - If a company is using Microsoft Active Directory which implements Security Assertion Markup Language (SAML),  you can set up a SAML-Based Federation for API Access to your AWS cloud. In this way, you can easily connect to AWS using the login credentials of your on-premise network.
 
 ## Kinesis Data Firehos
@@ -214,15 +220,32 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 ## Lambda
 
+- AWS Lambda lets you run code without provisioning or managing servers.
+
 - The AWS Lambda resource limit for ephemeral disk capacity (/tmp space) per invocation is 512 MB.
 
 - AWS Lambda supports Java, Node.js, C#, and Python with support for other languages coming in the future.
 
+- AWS provides a set of fully managed services such as Lambda, API Gateway, DynamoDB and many others that you can use to build and run serverless applications. 
 
 ## SQS
 
 - Remember that the messages in the SQS queue will continue to exist even after the EC2 instance has processed it, until you delete that message.
 
+- SQS helps to facilitate horizontal scaling of encoding tasks.
+
 ## Cloud Front
 
 - Amazon CloudFront is a global content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to your viewers with low latency and high transfer speeds.
+
+## ElastiCache
+
+- Amazon ElastiCache is a web service that makes it easy to deploy, operate, and scale an in-memory data store or cache in the cloud. The service improves the performance of web applications by allowing you to retrieve information from fast, managed, in-memory data stores, instead of relying entirely on slower disk-based databases.
+
+## API Gateway
+
+- Amazon API Gateway provides throttling at multiple levels including global and by a service call. Throttling limits can be set for standard rates and bursts. 
+
+## Snowball
+
+- AWS Snowball is a service that accelerates the transfer of large amounts of data into and out of AWS using physical storage appliances, bypassing the Internet.
