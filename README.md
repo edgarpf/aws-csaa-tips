@@ -66,6 +66,13 @@
 
 - The best way to implement a bastion host is to create a small EC2 instance which should only have a security group from a particular IP address for maximum security.
 
+- You can launch EC2 instances in a placement group, which determines how instances are placed on underlying hardware. 
+
+- In cases where your EC2 instance cannot access the Internet, you usually have to check two things:
+
+  * Does it have an EIP or public IP address?
+  * Is the route table properly configured?
+
 - An elastic network interface (ENI) is a logical networking component in a VPC that represents a virtual network card. You can attach a network interface to an EC2 instance in the following ways:
 
   * When it's running (hot attach)
@@ -159,6 +166,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - When you create or modify your DB instance to run as a Multi-AZ deployment, Amazon RDS automatically provisions and maintains a synchronous standby replica in a different Availability Zone.
 
+-  The standby instance will not perform any read and write operations while the primary instance is running.
+
 - 6TB is the maximum size of the DB instance.
 
 - Is it not possible to scale the storage down, you can only scale it up.
@@ -199,6 +208,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - Add a random prefix name to optimize uploads.
 
 - You can use Cloud Front to optmize your static site.
+
+- Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and your Amazon S3 bucket.
 
 - You can enable bucket version. 
 
@@ -276,7 +287,11 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - AWS Security Token Service (AWS STS) is the service that you can use to create and provide trusted users with temporary security credentials that can control access to your AWS resources.
 
-## Kinesis Data Firehos
+## Kinesis
+
+- A Kinesis data stream stores records from 24 hours by default to a maximum of 168 hours.
+
+## Kinesis Data Firehose
 
 - Amazon Kinesis Data Firehose is the easiest way to load streaming data into data stores and analytics tools. It can capture, transform, and load streaming data into Amazon S3, Amazon Redshift, Amazon Elasticsearch Service, and Splunk.
 
@@ -301,6 +316,14 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - SQS helps to facilitate horizontal scaling of encoding tasks.
 
 - The maximum message retention in SQS is 14 days.
+
+- It is a durable key-based object store service
+
+- Only FIFO queues can preserve the order of messages and not standard queues.
+
+## SWF
+
+- SWF decision task tells the decider the state of the workflow execution.
 
 ## Cloud Front
 
@@ -335,3 +358,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 ## OpsWorks
 
 - AWS OpsWorks is a configuration management service that provides managed instances of Chef and Puppet. Chef and Puppet are automation platforms that allow you to use code to automate the configurations of your servers. OpsWorks lets you use Chef and Puppet to automate how servers are configured, deployed, and managed across your Amazon EC2 instances or on-premises compute environments. OpsWorks has three offerings - AWS Opsworks for Chef Automate, AWS OpsWorks for Puppet Enterprise, and AWS OpsWorks Stacks.
+
+## Storage Gateway
+
+- The AWS Storage Gateway service helps customers seamlessly integrate existing on-premises applications, infrastructure, and data with the AWS Cloud.
