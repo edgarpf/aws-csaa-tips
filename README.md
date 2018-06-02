@@ -6,6 +6,10 @@
 
 - The term pilot light is often used to describe a DR scenario in which a minimal version of an environment is always running in the cloud. 
 
+- Perfect Forward Secrecy is a feature that provides additional safeguards against the eavesdropping of encrypted data, through the use of a unique random session key. This prevents the decoding of captured data, even if the secret long-term key is compromised. Cloudfront and Elastic Load Balancing are the two AWS services that supports Perfect Forward Secrecy.
+
+- Amazon Simple Queue Service (SQS) and Amazon Simple Workflow Service (SWF) are the services that you can use for creating a decoupled architecture in AWS.
+
 ## VPC, VPN
 
 - In the default VPC, AWS automatically sets up the following for you:
@@ -40,6 +44,8 @@
 
 - A bastion host is a special purpose computer on a network specifically designed and configured to withstand attacks.
 
+- We have two types of rules in Security Group: Inbound and Outbound rules.
+
 ## EC2
 
 - Instance metadata is data about your instance that you can use to configure or manage the running instance. You can get the instance id, public keys, public IP address and many other information from the instance metadata by firing a URL command in your instance to this URL: http://169.254.169.254/latest/meta-data/.
@@ -57,6 +63,15 @@
 - If your Spot instance is terminated or stopped by Amazon EC2 in the first instance hour, you will not be charged for that usage. However, if you terminate the instance yourself, you will be charged to the nearest second. If the Spot instance is terminated or stopped by Amazon EC2 in any subsequent hour, you will be charged for your usage to the nearest second. If you are running on Windows and you terminate the instance yourself, you will be charged for an entire hour.
 
 - Snapshots occur asynchronously which means that the point-in-time snapshot is created immediately, but the status of the snapshot is pending until the snapshot is complete (when all of the modified blocks have been transferred to Amazon S3), which can take several hours for large initial snapshots or subsequent snapshots where many blocks have changed. While it is completing, an in-progress snapshot is not affected by ongoing reads and writes to the volume hence, you can still use the volume.
+
+- The best way to implement a bastion host is to create a small EC2 instance which should only have a security group from a particular IP address for maximum security.
+
+- An elastic network interface (ENI) is a logical networking component in a VPC that represents a virtual network card. You can attach a network interface to an EC2 instance in the following ways:
+
+  * When it's running (hot attach)
+  * When it's stopped (warm attach)
+  * When the instance is being launched (cold attach).
+ 
 
 ## EBS (Elastic Block Store)
 
@@ -160,7 +175,9 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - You can store session state data on both DynamoDB and ElastiCache.
 
- - Amazon RDS automatically performs a failover in the event of any of the following:
+- In Amazon RDS, failover is automatically handled so that you can resume database operations as quickly as possible without administrative intervention in the event that your primary database instance went down. When failing over, Amazon RDS simply flips the canonical name record (CNAME) for your DB instance to point at the standby, which is in turn promoted to become the new primary. 
+
+- Amazon RDS automatically performs a failover in the event of any of the following:
 
    * Loss of availability in primary Availability Zone 
    * Loss of network connectivity to primary
@@ -201,7 +218,13 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - You can use pre-signed URLs to avoid people using your S3 objects for free.
 
- - Amazon S3 supports the following destinations where it can publish events:
+- Here are the prerequisites for routing traffic to a website that is hosted in an Amazon S3 Bucket:
+
+  * An S3 bucket that is configured to host a static website. The bucket must have the same name as your domain or subdomain. For example, if you want to use the subdomain acme.example.com, the name of the bucket must be acme.example.com.
+  * A registered domain name. You can use Route53 as your domain registrar, or you can use a different registrar.
+  * Route53 as the DNS service for the domain. If you register your domain name by using Route53, we automatically configure Route53 as the DNS service for the domain.
+
+- Amazon S3 supports the following destinations where it can publish events:
 
    * Amazon Simple Notification Service (Amazon SNS) topic
    * Amazon Simple Queue Service (Amazon SQS) queue
@@ -243,9 +266,13 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - There are 2 types of policies in IAM: Identity-Based Policies and Resource-Based Policies.
 
+- One of the best practices in Amazon IAM is to grant least privilege.
+
 - IAM users are created with no permissions by default.
 
 - If a company is using Microsoft Active Directory which implements Security Assertion Markup Language (SAML),  you can set up a SAML-Based Federation for API Access to your AWS cloud. In this way, you can easily connect to AWS using the login credentials of your on-premise network.
+
+- The best practice in handling API Credentials is to create a new role in the Identity Access Management (IAM) service and then assign it to a specific EC2 instance. 
 
 - AWS Security Token Service (AWS STS) is the service that you can use to create and provide trusted users with temporary security credentials that can control access to your AWS resources.
 
@@ -272,6 +299,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - Remember that the messages in the SQS queue will continue to exist even after the EC2 instance has processed it, until you delete that message.
 
 - SQS helps to facilitate horizontal scaling of encoding tasks.
+
+- The maximum message retention in SQS is 14 days.
 
 ## Cloud Front
 
