@@ -2,7 +2,11 @@
 
 ## General
 
+- Amazon Resource Names (ARNs) uniquely identify AWS resources. 
+
 - Tags enable you to categorize your AWS resources in different ways.
+
+- The recovery time objective (RTO) is the targeted duration of time and a service level within which a business process must be restored after a disaster (or disruption).
 
 - The term pilot light is often used to describe a DR scenario in which a minimal version of an environment is always running in the cloud. 
 
@@ -46,6 +50,8 @@
 
 - We have two types of rules in Security Group: Inbound and Outbound rules.
 
+- For EC2 instances launched in EC2-Classic, AWS releases the private IPv4 address when the instance is stopped or terminated. If you restart your stopped instance, it receives a new private IPv4 address.
+
 ## EC2
 
 - Instance metadata is data about your instance that you can use to configure or manage the running instance. You can get the instance id, public keys, public IP address and many other information from the instance metadata by firing a URL command in your instance to this URL: (http://169.254.169.254/latest/meta-data/).
@@ -68,6 +74,8 @@
 
 - You can launch EC2 instances in a placement group, which determines how instances are placed on underlying hardware. 
 
+- Pending, rebooting and running are valid EC2 Lifecycle states.
+
 - In cases where your EC2 instance cannot access the Internet, you usually have to check two things:
 
   * Does it have an EIP or public IP address?
@@ -83,6 +91,8 @@
 ## EBS (Elastic Block Store)
 
 - When you create an EBS volume in an Availability Zone, it is automatically replicated within that zone to prevent data loss due to failure of any single hardware component.
+
+- Amazon EBS provides three volume types to best meet the needs of your workloads: General Purpose (SSD), Provisioned IOPS (SSD), and Magnetic.
 
 - EBS volumes support live configuration changes while in production which means that you can modify the volume type, volume size, and IOPS capacity without service interruptions.
 
@@ -176,6 +186,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Every DB has a weekely maintenence window.
 
+- It is highly discouraged to disable the automated backups in Amazon RDS because it disables point-in-time recovery.
+
 - Amazon DynamoDB is a fast and flexible NoSQL database service for all applications that need consistent, single-digit millisecond latency at any scale. It is a fully managed cloud database and supports both document and key-value store models. 
 
 - If you take a snapshot the I/O operations will be suspended for a few minutes while the backup is in progress.
@@ -198,6 +210,12 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 ## S3 (Simple Storage Service)
 
 - Transferring data from an EC2 instance to Amazon S3, Amazon Glacier, Amazon DynamoDB, Amazon SES, Amazon SQS, or Amazon SimpleDB in the same AWS Region has no cost at all.
+
+- You need to enable Cross-Region Replication to ensure that your S3 bucket would not be affected even if there is an outage in one of the Availability Zones or a regional service failure.
+
+- To host a static website, you configure an Amazon S3 bucket for website hosting, and then upload your website content to the bucket. The website is then available at the AWS Region-specific website endpoint of the bucket, which is in one of the following formats:
+
+   * <bucket-name>.s3-website-<AWS-region>.amazonaws.com
 
 - By using Versioning and enabling MFA (Multi-Factor Authentication) Delete, you can secure and recover your S3 objects from accidental deletion or overwrite.  
 
@@ -263,6 +281,12 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 ## CloudWatch 
 
+- Volume status checks are automated tests that run every 5 minutes and return a pass or fail status.
+
+  *If all checks pass, the status of the volume is ok.
+  * If a check fails, the status of the volume is impaired.
+  * If the status is insufficient-data, the checks may still be in progress on the volume.
+
 - CloudWatch has available Amazon EC2 Metrics for you to use for monitoring CPU utilization, Network utilization, Disk performance and Disk Reads/Writes. In case that you need to monitor the below items, you need to prepare a custom metric using a Perl or other shell script, as there are no ready to use metrics for these:
 
    * Memory utilization
@@ -315,6 +339,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Remember that the messages in the SQS queue will continue to exist even after the EC2 instance has processed it, until you delete that message.
 
+- The standard queues provide at-least-once delivery, which means that each message is delivered at least once.
+
 - SQS helps to facilitate horizontal scaling of encoding tasks.
 
 - The maximum message retention in SQS is 14 days.
@@ -364,3 +390,11 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 ## Storage Gateway
 
 - The AWS Storage Gateway service helps customers seamlessly integrate existing on-premises applications, infrastructure, and data with the AWS Cloud.
+
+## Trusted Advisor 
+
+- Remember that the AWS Trusted Advisor analyzes your AWS environment and provides best practice recommendations in these five categories: Cost Optimization, Performance, Fault Tolerance, Security, and Service Limits. You can use a mnemonic, such as CPFSS, to memorize these five categories.
+
+## WAF
+
+- AWS WAF is a web application firewall that helps protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources.
