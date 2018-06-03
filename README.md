@@ -10,6 +10,8 @@
 
 - The term pilot light is often used to describe a DR scenario in which a minimal version of an environment is always running in the cloud. 
 
+- AWS hosts a variety of public datasets that anyone can access for free.
+
 - Perfect Forward Secrecy is a feature that provides additional safeguards against the eavesdropping of encrypted data, through the use of a unique random session key. This prevents the decoding of captured data, even if the secret long-term key is compromised. Cloudfront and Elastic Load Balancing are the two AWS services that supports Perfect Forward Secrecy.
 
 - Amazon Simple Queue Service (SQS) and Amazon Simple Workflow Service (SWF) are the services that you can use for creating a decoupled architecture in AWS.
@@ -38,6 +40,8 @@
 
 - Direct Connect creates a direct, private connection from your on-premises data center to AWS, letting you establish a 1-gigabit or 10-gigabit dedicated network connection using Ethernet fiber-optic cable.  
 
+- You can use a network address translation (NAT) gateway to enable instances in a private subnet to connect to the internet or other AWS services, but prevent the internet from initiating a connection with those instances.
+
 - You manage your DB engine configuration through the use of parameters in a DB parameter group. DB parameter groups act as a container for engine configuration values that are applied to one or more DB instances.
 
 - The allowed block size is between a /28 netmask and /16 netmask.
@@ -63,6 +67,10 @@
 - Instance metadata is data about your instance that you can use to configure or manage the running instance. You can get the instance id, public keys, public IP address and many other information from the instance metadata by firing a URL command in your instance to this URL: (http://169.254.169.254/latest/meta-data/).
 
 - The instance retains its associated Elastic IP addresses if it is in the EC2-VPC platform and not on EC2-Classic.
+
+- SSD-backed and HDD-backed EBS volumes have the same maximum volume size limit of 16 tebibyte (TiB).
+
+- Storage optimized instances are designed for workloads that require high, sequential read and write access to very large data sets on local storage.
 
 - You can use Run Command from the console to configure instances without having to login to each instance.
 
@@ -208,6 +216,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Is it not possible to scale the storage down, you can only scale it up.
 
+- The recommended storage engine for MySQL is InnoDB and not MyISAM.
+
 - Every DB has a weekely maintenence window.
 
 - You manage your DB engine configuration through the use of parameters in a DB parameter group. DB parameter groups act as a container for engine configuration values that are applied to one or more DB instances.
@@ -277,6 +287,12 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - You can use pre-signed URLs to avoid people using your S3 objects for free.
 
+- To enable the cross-region replication feature in S3, the following items should be met:
+
+  * The source and destination buckets must have versioning enabled.
+  * The source and destination buckets must be in different AWS Regions.
+  * Amazon S3 must have permissions to replicate objects from that source bucket to the destination bucket on your behalf.
+
 - Here are the prerequisites for routing traffic to a website that is hosted in an Amazon S3 Bucket:
 
   * An S3 bucket that is configured to host a static website. The bucket must have the same name as your domain or subdomain. For example, if you want to use the subdomain acme.example.com, the name of the bucket must be acme.example.com.
@@ -341,6 +357,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - IAM users are created with no permissions by default.
 
+- AWS sign-in page URL format: https://My_AWS_Account_ID.signin.aws.amazon.com/console/
+
 - There are 3 IAM identities: Users, Groups, and Roles.
 
 - If a company is using Microsoft Active Directory which implements Security Assertion Markup Language (SAML),  you can set up a SAML-Based Federation for API Access to your AWS cloud. In this way, you can easily connect to AWS using the login credentials of your on-premise network.
@@ -370,6 +388,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - The AWS Lambda resource limit for ephemeral disk capacity (/tmp space) per invocation is 512 MB.
 
 - AWS Lambda supports Java, Node.js, C#, and Python with support for other languages coming in the future.
+
+- The maximum execution duration per request in AWS Lambda is 300 seconds, which is equivalent to 5 minutes.
 
 - AWS provides a set of fully managed services such as Lambda, API Gateway, DynamoDB and many others that you can use to build and run serverless applications. 
 
@@ -459,3 +479,11 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 FIPS 140-2 compliance.
   * Integration with applications using PKCS#11, Java JCE, or Microsoft CNG interfaces.
   * High-performance in-VPC cryptographic acceleration (bulk crypto).
+
+## Elastic IP
+
+- An Elastic IP address doesn’t incur charges as long as the following conditions are true:
+
+  * The Elastic IP address is associated with an Amazon EC2 instance.
+  * The instance associated with the Elastic IP address is running.
+  * The instance has only one Elastic IP address attached to it.
