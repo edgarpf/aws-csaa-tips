@@ -34,6 +34,8 @@
 
 - Changes made in a Security Group is immediately implemented to all associated EC2 instances.
 
+- A VPC peering connection is a networking connection between two VPCs that enables you to route traffic between them privately.
+
 - Direct Connect creates a direct, private connection from your on-premises data center to AWS, letting you establish a 1-gigabit or 10-gigabit dedicated network connection using Ethernet fiber-optic cable.  
 
 - You manage your DB engine configuration through the use of parameters in a DB parameter group. DB parameter groups act as a container for engine configuration values that are applied to one or more DB instances.
@@ -315,6 +317,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
   * If a check fails, the status of the volume is impaired.
   * If the status is insufficient-data, the checks may still be in progress on the volume.
 
+- The CloudWatch Logs agent provides an automated way to send log data to CloudWatch Logs from Amazon EC2 instances.
+
 - CloudWatch has available Amazon EC2 Metrics for you to use for monitoring CPU utilization, Network utilization, Disk performance and Disk Reads/Writes. In case that you need to monitor the below items, you need to prepare a custom metric using a Perl or other shell script, as there are no ready to use metrics for these:
 
    * Memory utilization
@@ -337,6 +341,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - IAM users are created with no permissions by default.
 
+- There are 3 IAM identities: Users, Groups, and Roles.
+
 - If a company is using Microsoft Active Directory which implements Security Assertion Markup Language (SAML),  you can set up a SAML-Based Federation for API Access to your AWS cloud. In this way, you can easily connect to AWS using the login credentials of your on-premise network.
 
 - The best practice in handling API Credentials is to create a new role in the Identity Access Management (IAM) service and then assign it to a specific EC2 instance. 
@@ -344,6 +350,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - AWS Security Token Service (AWS STS) is the service that you can use to create and provide trusted users with temporary security credentials that can control access to your AWS resources.
 
 ## Kinesis
+
+- Amazon Kinesis makes it easy to collect, process, and analyze real-time, streaming data so you can get timely insights and react quickly to new information.
 
 - A Kinesis data stream stores records from 24 hours by default to a maximum of 168 hours.
 
@@ -366,6 +374,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - AWS provides a set of fully managed services such as Lambda, API Gateway, DynamoDB and many others that you can use to build and run serverless applications. 
 
 ## SQS
+
+- Amazon SQS messages are items in the SQS queue that can contain up to 256 KB of text data, including XML, JSON and unformatted text. 
 
 - Remember that the messages in the SQS queue will continue to exist even after the EC2 instance has processed it, until you delete that message.
 
@@ -409,6 +419,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Amazon Redshift is a fast, fully managed data warehouse that makes it simple and cost-effective to analyze all your data using standard SQL and your existing Business Intelligence (BI) tools. It allows you to run complex analytic queries against petabytes of structured data using sophisticated query optimization, columnar storage on high-performance local disks, and massively parallel query execution.
 
+- Amazon Redshift uses a block size of 1 MB, which is more efficient and further reduces the number of I/O requests needed to perform any database loading or other operations that are part of query execution.
+
 ## AWS IoT Core
 
 - AWS IoT Core is a managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices. 
@@ -438,3 +450,12 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 ## AWS CloudHSM
 
 - AWS CloudHSM provides hardware security modules in the AWS Cloud.
+
+## KMS
+
+- You should consider using AWS CloudHSM over AWS KMS if you require:
+
+  * Keys stored in dedicated, third-party validated hardware security modules under your exclusive control.
+FIPS 140-2 compliance.
+  * Integration with applications using PKCS#11, Java JCE, or Microsoft CNG interfaces.
+  * High-performance in-VPC cryptographic acceleration (bulk crypto).
