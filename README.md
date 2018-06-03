@@ -34,6 +34,10 @@
 
 - Changes made in a Security Group is immediately implemented to all associated EC2 instances.
 
+- Direct Connect creates a direct, private connection from your on-premises data center to AWS, letting you establish a 1-gigabit or 10-gigabit dedicated network connection using Ethernet fiber-optic cable.  
+
+- You manage your DB engine configuration through the use of parameters in a DB parameter group. DB parameter groups act as a container for engine configuration values that are applied to one or more DB instances.
+
 - The allowed block size is between a /28 netmask and /16 netmask.
 
 - The CIDR block must not overlap with any existing CIDR block that's associated with the VPC.
@@ -58,9 +62,15 @@
 
 - The instance retains its associated Elastic IP addresses if it is in the EC2-VPC platform and not on EC2-Classic.
 
+- You can use Run Command from the console to configure instances without having to login to each instance.
+
+- Just maintain a single snapshot of the EBS volume since the latest snapshot is both incremental and complete.
+
 - If you use PuTTY to connect to your instance via SSH and get either of the following errors, Error: Server refused our key or Error: No supported authentication methods available, verify that you are connecting with the appropriate user name for your AMI. You should also verify that your private key (.pem) file has been correctly converted to the format recognized by PuTTY (.ppk).
 
 - Amazon EC2 has a soft limit of 20 instances per region, which can be easily resolved by completing the Amazon EC2 instance request form where your use case and your instance increase will be considered. Limit increases are tied to the region they were requested for.
+
+- A golden AMI is simply a customized Amazon Machine Image that contains the latest security patches, software, configuration and software agents.
 
 - To log in to your instance, you must create a key pair.
 
@@ -72,9 +82,19 @@
 
 - The best way to implement a bastion host is to create a small EC2 instance which should only have a security group from a particular IP address for maximum security.
 
+- The describe-instances command shows the status of the EC2 instances including the recently terminated instances. It also returns a StateReason of why the instance was terminated.
+
 - You can launch EC2 instances in a placement group, which determines how instances are placed on underlying hardware. 
 
 - Pending, rebooting and running are valid EC2 Lifecycle states.
+
+- Amazon EC2 Auto Scaling provides you with an option to enable automatic scaling for one or more EC2 instances by attaching them to your existing Auto Scaling group. After the instances are attached, they become a part of the Auto Scaling group. The instance that you want to attach must meet the following criteria:
+
+  * The instance is in the running state.
+  * The AMI used to launch the instance must still exist.
+  * The instance is not a member of another Auto Scaling group.
+  * The instance is in the same Availability Zone as the Auto Scaling group.
+  * If the Auto Scaling group has an attached load balancer, the instance and the load balancer must both be in EC2-Classic or the same VPC. If the Auto Scaling group has an attached target group, the instance and the load balancer must both be in the same VPC.
 
 - In cases where your EC2 instance cannot access the Internet, you usually have to check two things:
 
@@ -172,6 +192,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Basic monitoring is the default if you created AS launch configuration using AWS console. But if you use AWS CLI the default will be detailed monitoring.
 
+- If the application is scaling up and down multiple times within the hour, the issue lies on the cooldown period of the Auto Scaling group.
+
 - When you delete an AS Group, its parameters minimum, maximum, and desired capacity are all set to Zero (it shows under AWS Console view as well), hence, it terminates all its EC2 instances.
 
 ## RDS (Relational Database Service) and DynamoDB
@@ -185,6 +207,10 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - Is it not possible to scale the storage down, you can only scale it up.
 
 - Every DB has a weekely maintenence window.
+
+- You manage your DB engine configuration through the use of parameters in a DB parameter group. DB parameter groups act as a container for engine configuration values that are applied to one or more DB instances.
+
+- Read Replicas are supported by Amazon Aurora and Amazon RDS for MySQL, MariaDB and PostgreSQL. Unlike Multi-AZ deployments, Read Replicas for these engines use each's built-in replication technology and are subject to its strengths and limitations.
 
 - It is highly discouraged to disable the automated backups in Amazon RDS because it disables point-in-time recovery.
 
@@ -275,6 +301,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - There is no additional charge for AWS CloudFormation. You only pay for the AWS resources that are created.
 
+- Outputs is an optional section of the cloudfront template that describes the values that are returned whenever you view your stack's properties. 
+
 ## EMR
 
 - Amazon EMR is a web service that enables businesses, researchers, data analysts, and developers to easily and cost-effectively process vast amounts of data.
@@ -304,6 +332,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - There are 2 types of policies in IAM: Identity-Based Policies and Resource-Based Policies.
 
 - One of the best practices in Amazon IAM is to grant least privilege.
+
+- A policy is an entity in AWS that, when attached to an identity or resource, defines their permissions. 
 
 - IAM users are created with no permissions by default.
 
@@ -341,6 +371,8 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - The standard queues provide at-least-once delivery, which means that each message is delivered at least once.
 
+- The visibility timeout is a period of time during which Amazon SQS prevents other consuming components from receiving and processing a message. 
+
 - SQS helps to facilitate horizontal scaling of encoding tasks.
 
 - The maximum message retention in SQS is 14 days.
@@ -348,6 +380,10 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - It is a durable key-based object store service
 
 - Only FIFO queues can preserve the order of messages and not standard queues.
+
+- Immediately after the message is received, it remains in the queue. To prevent other consumers from processing the message again, Amazon SQS sets a visibility timeout, a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. The default visibility timeout for a message is 30 seconds. The maximum is 12 hours.
+
+- Amazon SQS automatically deletes messages that have been in a queue for more than the maximum message retention period. The default message retention period is 4 days.
 
 ## SWF
 
@@ -398,3 +434,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 ## WAF
 
 - AWS WAF is a web application firewall that helps protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources.
+
+## AWS CloudHSM
+
+- AWS CloudHSM provides hardware security modules in the AWS Cloud.
