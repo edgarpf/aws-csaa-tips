@@ -60,11 +60,11 @@
 
 - We have two types of rules in Security Group: Inbound and Outbound rules.
 
-- For EC2 instances launched in EC2-Classic, AWS releases the private IPv4 address when the instance is stopped or terminated. If you restart your stopped instance, it receives a new private IPv4 address.
-
 ## EC2
 
 - Instance metadata is data about your instance that you can use to configure or manage the running instance. You can get the instance id, public keys, public IP address and many other information from the instance metadata by firing a URL command in your instance to this URL: (http://169.254.169.254/latest/meta-data/).
+
+- For EC2 instances launched in EC2-Classic, AWS releases the private IPv4 address when the instance is stopped or terminated. If you restart your stopped instance, it receives a new private IPv4 address.
 
 - The instance retains its associated Elastic IP addresses if it is in the EC2-VPC platform and not on EC2-Classic.
 
