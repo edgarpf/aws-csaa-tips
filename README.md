@@ -275,7 +275,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Amazon S3 Infrequent Acess class provides 99.9% avaliability and 99.999999999% durability to S3 objects.
 
-- Reduced Redundancy Storage (RRS) provides 99.99% durability and 99.99% availability to S3 objects.
+- Reduced Redundancy Storage (RRS) provides 99.99% availability and 99.99% durability to S3 objects.
 
 - Glacier provides 99.999999999% durability.
 
