@@ -329,7 +329,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Volume status checks are automated tests that run every 5 minutes and return a pass or fail status.
 
-  *If all checks pass, the status of the volume is ok.
+  * If all checks pass, the status of the volume is ok.
   * If a check fails, the status of the volume is impaired.
   * If the status is insufficient-data, the checks may still be in progress on the volume.
 
