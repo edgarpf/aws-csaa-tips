@@ -407,7 +407,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - The maximum message retention in SQS is 14 days.
 
-- It is a durable key-based object store service
+- It is a durable key-based object store service.
 
 - Only FIFO queues can preserve the order of messages and not standard queues.
 
