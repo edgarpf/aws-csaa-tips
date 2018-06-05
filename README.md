@@ -379,7 +379,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 ## SNS 
 
-- Amazon SNS supports notifications over multiple transport protocols in order for customers to have broad flexibility of delivery mechanisms. Customers can select one the following transports as part of the subscription requests:HTTP, HTTPS, Email, Email-JSON, SQS and SMS.
+- Amazon SNS supports notifications over multiple transport protocols in order for customers to have broad flexibility of delivery mechanisms. Customers can select one the following transports as part of the subscription requests: HTTP, HTTPS, Email, Email-JSON, SQS and SMS.
 
 ## Lambda
 
