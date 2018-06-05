@@ -253,7 +253,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - To host a static website, you configure an Amazon S3 bucket for website hosting, and then upload your website content to the bucket. The website is then available at the AWS Region-specific website endpoint of the bucket, which is in one of the following formats:
 
-   * <bucket-name>.s3-website-<AWS-region>.amazonaws.com
+   * bucket-name.s3-website-AWS-region.amazonaws.com
 
 - By using Versioning and enabling MFA (Multi-Factor Authentication) Delete, you can secure and recover your S3 objects from accidental deletion or overwrite.  
 
