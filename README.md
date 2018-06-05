@@ -265,7 +265,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Add a random prefix name to optimize uploads.
 
-- You can use Cloud Front to optmize your static site.
+- You can use Cloud Front to optimize your static site.
 
 - Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers of files over long distances between your client and your Amazon S3 bucket.
 
