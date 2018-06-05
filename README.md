@@ -401,7 +401,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - The standard queues provide at-least-once delivery, which means that each message is delivered at least once.
 
-- The visibility timeout is a period of time during which Amazon SQS prevents other consuming components from receiving and processing a message. 
+- The visibility timeout is a period of time during which Amazon SQS prevents other consuming components from receiving and processing a message. The default visibility timeout for a message is 30 seconds. The maximum is 12 hours.
 
 - SQS helps to facilitate horizontal scaling of encoding tasks.
 
@@ -410,8 +410,6 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 - It is a durable key-based object store service.
 
 - Only FIFO queues can preserve the order of messages and not standard queues.
-
-- Immediately after the message is received, it remains in the queue. To prevent other consumers from processing the message again, Amazon SQS sets a visibility timeout, a period of time during which Amazon SQS prevents other consumers from receiving and processing the message. The default visibility timeout for a message is 30 seconds. The maximum is 12 hours.
 
 - Amazon SQS automatically deletes messages that have been in a queue for more than the maximum message retention period. The default message retention period is 4 days.
 
