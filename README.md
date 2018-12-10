@@ -42,8 +42,6 @@
 
 - You can use a network address translation (NAT) gateway to enable instances in a private subnet to connect to the internet or other AWS services, but prevent the internet from initiating a connection with those instances.
 
-- You manage your DB engine configuration through the use of parameters in a DB parameter group. DB parameter groups act as a container for engine configuration values that are applied to one or more DB instances.
-
 - The allowed block size is between a /28 netmask and /16 netmask.
 
 - The CIDR block must not overlap with any existing CIDR block that's associated with the VPC.
