@@ -216,11 +216,10 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - Is it not possible to scale the storage down, you can only scale it up.
 
-- The recommended storage engine for MySQL is InnoDB and not MyISAM.
+- The recommended storage 
+for MySQL is InnoDB and not MyISAM.
 
 - Every DB has a weekely maintenence window.
-
-- You manage your DB engine configuration through the use of parameters in a DB parameter group. DB parameter groups act as a container for engine configuration values that are applied to one or more DB instances.
 
 - Read Replicas are supported by Amazon Aurora and Amazon RDS for MySQL, MariaDB and PostgreSQL. Unlike Multi-AZ deployments, Read Replicas for these engines use each's built-in replication technology and are subject to its strengths and limitations.
 
@@ -464,19 +463,6 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 ## WAF
 
 - AWS WAF is a web application firewall that helps protect your web applications from common web exploits that could affect application availability, compromise security, or consume excessive resources.
-
-## AWS CloudHSM
-
-- AWS CloudHSM provides hardware security modules in the AWS Cloud.
-
-## KMS
-
-- You should consider using AWS CloudHSM over AWS KMS if you require:
-
-  * Keys stored in dedicated, third-party validated hardware security modules under your exclusive control.
-FIPS 140-2 compliance.
-  * Integration with applications using PKCS#11, Java JCE, or Microsoft CNG interfaces.
-  * High-performance in-VPC cryptographic acceleration (bulk crypto).
 
 ## Elastic IP
 
