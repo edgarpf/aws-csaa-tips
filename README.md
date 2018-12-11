@@ -212,7 +212,7 @@ the backed EC2 instances registered with the ELB across multiple availability zo
 
 - 6TB is the maximum size of the DB instance.
 
-- Is it not possible to scale the storage down, you can only scale it up.
+- It is not possible to scale the storage down, you can only scale it up.
 
 - The recommended storage 
 for MySQL is InnoDB and not MyISAM.
